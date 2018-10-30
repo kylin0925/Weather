@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class RCAdapter extends RecyclerView.Adapter<RCAdapter.ViewHolder> {
     String TAG = "RCAdapter";
     Context ctx;
-    String list[] = {"Taipei","hsinchu"};
+    String list[] = {"Taipei","Hsinchu"};
     public RCAdapter(Context ctx) {
 
         this.ctx = ctx;

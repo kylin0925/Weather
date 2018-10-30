@@ -15,6 +15,7 @@ public class WeatherDetail extends AppCompatActivity {
     TextView txtCurrentTemp;
     TextView txtCity;
     TextView txtDescription;
+    TextView txtHumidity;
     ImageView imgIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class WeatherDetail extends AppCompatActivity {
         txtCity = (TextView)findViewById(R.id.txtCity);
         imgIcon = (ImageView)findViewById(R.id.imgIcon);
         txtDescription = (TextView)findViewById(R.id.txtDescription);
+        txtHumidity = (TextView)findViewById(R.id.txtHumidity);
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.LOCATION);
@@ -53,9 +55,10 @@ public class WeatherDetail extends AppCompatActivity {
         @Override
         protected void onPostExecute(WeatherData weatherData) {
             super.onPostExecute(weatherData);
-            txtCurrentTemp.setText( String.valueOf(weatherData.main.temp));
+            txtCurrentTemp.setText("temperature  :" + String.valueOf((int)weatherData.main.temp) + "°С");
             imgIcon.setImageBitmap(icon);
             txtDescription.setText(weatherData.weather.get(0).description);
+            txtHumidity.setText("humidity :" + weatherData.main.humidity + " %");
         }
     }
 }
